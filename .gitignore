@@ -9,3 +9,10 @@ __pycache__/
 /local_assets/
 /checkpoints/
 /outputs/
+
+# Audio, archives and third-party clones stay local
+*.wav
+*.mp3
+*.flac
+*.zip
+/third_party/

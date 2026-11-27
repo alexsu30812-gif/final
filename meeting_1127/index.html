@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>11/27 提案｜同一個主歌，換了副歌，結尾也該換嗎？</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #f8f7f1; color: #182b25; font: 17px/1.72 Inter, "PingFang TC", "Microsoft JhengHei", sans-serif; }
+  main { max-width: 880px; margin: auto; padding: 38px 5vw 64px; }
+  header { padding-bottom: 13px; border-bottom: 2px solid #245441; }
+  h1 { font-size: clamp(28px, 4.8vw, 44px); line-height: 1.23; margin: .38em 0; }
+  h2 { font-size: 23px; line-height: 1.38; margin: 1.35em 0 .4em; }
+  p { margin: .35em 0 .72em; }
+  small { color: #406352; font-weight: 700; }
+  a, summary { color: #185644; }
+  fieldset { border: 1px solid #bbc9bc; border-radius: 9px; background: #fff; padding: 10px 16px 16px; min-width: 0; margin: 1em 0; }
+  legend { font-weight: 750; color: #183e32; padding: 0 .4em; }
+  .clips { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  audio { display: block; width: 100%; }
+  label { display: inline-block; margin: .4em .8em 0 0; }
+  button { font: inherit; border-radius: 6px; border: 1px solid #245441; background: #245441; color: white; padding: .38em .83em; cursor: pointer; }
+  button:disabled { background: #e5eae4; border-color: #c4cec4; color: #47594c; cursor: default; }
+  #result { border-left: 3px solid #a9662c; padding-left: .8em; }
+  ol { padding-left: 1.4em; }
+  li { margin: .35em 0; }
+  @media (max-width: 540px) { .clips { grid-template-columns: 1fr; gap: 8px; } main { padding-top: 24px; } }
+</style>
+</head><body><main>
+<header><small>DeepMIR 期末專題 · 11/27 提案</small><h1>同一個主歌，換了副歌，<br>結尾也該換嗎？</h1>
+<p>我們想做一個會看副歌的編曲程式。它沿用 A 風格的主歌，只改最後一小節裡真正需要動的音，讓 B 的第一句容易接進來。</p></header>
+<section><h2>先試聽，再看假說</h2>
+<p>每題用同一段主歌接同一個副歌，兩版只差主歌最後一個音。聽約第 4–5 秒，選你覺得進副歌較自然的版本。兩題使用不同副歌，版本順序各自隨機。音檔為原創合成樂句，本頁離線可用，選擇只在這次開啟頁面時保留。</p>
+<div id="questions"></div>
+<button id="reveal" disabled type="button">兩題選完後看對照</button>
+<p id="result" hidden aria-live="polite"></p>
+<noscript>請啟用 JavaScript 進行隨機試聽，或從 crossed 資料夾直接播放四個 WAV。</noscript></section>
+<section><h2>我們要實作的部分</h2>
+<ol>
+<li><b>先寫好 A 的主歌，劃定可改範圍。</b>鎖定 B 的歌詞、旋律、節奏和位置。可編輯的只有主歌最後一小節，最多動兩個音符事件。輸出修改前後的音高、起拍和長度。</li>
+<li><b>從 A 找候選，讓 B 決定要用哪個。</b>從 A 其他樂句抽取收尾時值、級進方向與休止習慣。候選包含維持原譜、換一個尾音、縮短尾音；音域和歌詞音節維持可唱。先檢查是否擠到 B 的弱起，再依旋律接到 B 首個重音的音程、與當下和弦的關係排序。接近時優先選改動少的版本。當 A 經常用跳進時，也允許跳進候選。規則先在開發曲調整，再固定用於測試曲。</li>
+<li><b>用另一個副歌挑戰它。</b>給同一個 A 配上同調、同速度、同拍號的 B₁、B₂，得到兩個結尾。交換結尾，各接兩個副歌。另留原譜直接接入的版本，確認改寫有沒有比保持原樣更值得。</li>
+</ol></section>
+<section><h2>什麼結果會改變我們的看法？</h2>
+<p>若接 B₁ 和接 B₂ 時，偏好都落在各自設計的結尾，這組結果符合「過門取決於目標副歌」的預測。若兩題都選同一個結尾，它可能本身就討喜。平手和偏好相反的案例同樣保留。跨多組歌曲、聽眾與種子重複，才估得出效果。</p>
+<p>第一輪只測副歌入口。先用相同音色渲染譜做對照，再給 YuE2 同一風格、歌詞與配對種子重唱，核對它是否真的唱出編輯。請聽眾另外評 B 副歌可辨識度，以及新段的配器與律動像不像 A。接點變順、A 的風格卻變淡，也要計入代價。</p></section>
+<section><h2>明天要決定什麼</h2>
+<p>選一個主歌和兩個副歌，確認團隊接受重唱 B。A 標記三段譜與副歌起點；B 用同一個主歌產生兩個結尾；C 生成對照音檔；D 隱藏版本、打亂順序並保留平手。11/29 先交一組完整的交叉比較及原譜對照。</p>
+<p>這一頁的四段鋼琴聲用來展示如何互換過門，兩個結尾與副歌是事先寫好的樂句。<a href="crossed/make_examples.py">查看示意音檔製作程式</a></p></section>
+</main>
+<script>
+const targets = ['c1', 'c2'];
+const order = targets.map(() => Math.random() < 0.5 ? ['e1', 'e2'] : ['e2', 'e1']);
+const selections = [null, null];
+const questions = document.getElementById('questions');
+const reveal = document.getElementById('reveal');
+const result = document.getElementById('result');
+const labels = ['甲', '乙'];
+for (const [i, target] of targets.entries()) {
+  const field = document.createElement('fieldset');
+  const legend = document.createElement('legend');
+  legend.textContent = '副歌 ' + (i + 1);
+  field.append(legend);
+  const clips = document.createElement('div');
+  clips.className = 'clips';
+  for (const [j, ending] of order[i].entries()) {
+    const block = document.createElement('div');
+    block.textContent = '版本' + labels[j];
+    const player = document.createElement('audio');
+    player.controls = true;
+    player.preload = 'metadata';
+    player.src = 'crossed/' + ending + '_' + target + '.wav';
+    player.setAttribute('aria-label', legend.textContent + block.textContent);
+    player.addEventListener('play', () => {
+      for (const other of document.querySelectorAll('audio')) if (other !== player) other.pause();
+    });
+    block.append(player);
+    clips.append(block);
+  }
+  field.append(clips);
+  for (const [j, caption] of ['甲較自然', '乙較自然', '平手'].entries()) {
+    const label = document.createElement('label');
+    const option = document.createElement('input');
+    option.type = 'radio';
+    option.name = target;
+    option.addEventListener('change', () => {
+      selections[i] = j === 2 ? 'tie' : order[i][j];
+      reveal.disabled = selections.includes(null);
+      result.hidden = true;
+    });
+    label.append(option, caption);
+    field.append(label);
+  }
+  questions.append(field);
+}
+reveal.addEventListener('click', () => {
+  const [one, two] = selections;
+  let reading;
+  if (selections.includes('tie')) reading = '至少有一題平手，這次沒有聽到完整的偏好反轉。';
+  else if (one === two) reading = '你在兩題都偏好同一個尾音。這是一個能挑戰我們假說的結果。';
+  else if (one === 'e1') reading = '你的偏好隨副歌反轉，方向符合這組樂句事先設定的預測。';
+  else reading = '你的偏好隨副歌反轉，但你喜歡的搭配與我們預測的方向相反。';
+  const key = order.map((row, i) => '副歌 ' + (i + 1) + ' 的甲版是 ' + (row[0] === 'e1' ? 'B4' : 'G♯4') + ' 收尾').join('，');
+  result.textContent = reading + ' ' + key + '。兩個副歌分別從 C5 與 A4 起唱。我們事前預測 B4→C5 和 G♯4→A4 的向上半音會有較明顯的落點。每位聽眾都可以有不同感受。';
+  result.hidden = false;
+});
+</script></body></html>

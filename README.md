@@ -50,5 +50,8 @@
 - [四週團隊計畫](DeepMIR_Final_Project_四週團隊計畫.md)：最新版工作提案、分工、日期、測試規模與備案。
 - [完整研究提案](Chorus_Conditioned_Song_Generation_Proposal_zhTW.md)：原始構想、設計與完整評估框架。
 - [目標](目標)：保留最初定義，方便追蹤和 12 月版本的差異。
+- [baseline 試跑報告](baseline_tryout_report_fixed.pptx)：11/27 的 ACE-Step repaint 首次端到端試跑。
+- [MIDI-SAG 應用與試跑步驟](midi_sag/README.md)：可接到 baseline Route 2 的地方、已知風險與 GPU 機試跑清單（尚未實跑）。
+- [11/27 會議示範程式](meeting_1127/README.md)：和弦選位示範、POP909 代理測試與結果；會議提案與文獻核查 PDF 在 [docs/](docs/)。
 - [Final Project Pitch v3](Final_Project_Pitch_v3.pdf)：原始簡報快照，「沒有既有方法」的敘述需更新。MuLaCover 已展示以副歌的旋律與和弦為條件生成前後段落，案例先給定副歌位置和目標歌詞。你們主要驗證自動選曲式與接點效果。[MuLaCover 論文](https://arxiv.org/html/2610.26684#A2)
 - [ACE-Step 安裝](https://github.com/ace-step/ACE-Step-1.5/blob/main/docs/en/INSTALL.md) · [Repaint 介面](https://github.com/ace-step/ACE-Step-1.5/blob/main/docs/en/INFERENCE.md#3-repaint) · [YuE2](https://github.com/multimodal-art-projection/YuE) · [SoulX-Singer](https://github.com/Soul-AILab/SoulX-Singer)

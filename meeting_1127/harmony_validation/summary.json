@@ -1,0 +1,214 @@
+{
+  "song_folders": 896,
+  "exclusions": {
+    "no_eligible_eight_span_window": 410,
+    "fewer_than_four_history_chords": 12
+  },
+  "input_fingerprint_sha256": "a51bae2f4785feddf0f55c7b9fdf0303341b876f4ffc5cb6fc07515e9eb97886",
+  "seed": 11272026,
+  "context_weight": 0.2,
+  "min_melody_note_time_fraction": 0.25,
+  "numpy": "2.2.6",
+  "pretty_midi": "0.2.11",
+  "methods": "MELODY note-duration fractions per annotated span; no downbeat multiplier. Add-one-smoothed bigram log probability from each song's first half. Combined = melody + 0.2 * log transition.",
+  "protocol": "One window per song in second half, eight annotation rows gap after first half. Only contiguous eight root-position major/minor chords in known within-song vocabulary, all adjacent labels different. Interior six have enough note-time; no section labels. Uniform interior slot and uniform feasible replacement from history excluding original and either adjacent chord. Same candidate restrictions for repair. Near-equal gains averaged over tied edit pairs; optional edit only if best gain exceeds 1e-9. Forced-position random-slot reference 1/6. Clean edits flag changes to original dataset annotations, not inherently bad music.",
+  "all": {
+    "n": 474,
+    "rates": {
+      "melody": {
+        "forced_location": 0.5325625148409959,
+        "location": 0.5195298372513563,
+        "restore": 0.29093329314848304,
+        "edit_clean": 0.8080168776371308,
+        "abstain_corrupt": 0.05063291139240506
+      },
+      "context": {
+        "forced_location": 0.8284106891701829,
+        "location": 0.8259493670886076,
+        "restore": 0.7088607594936709,
+        "edit_clean": 0.6329113924050633,
+        "abstain_corrupt": 0.0189873417721519
+      },
+      "combined": {
+        "forced_location": 0.8164556962025317,
+        "location": 0.8122362869198312,
+        "restore": 0.7014767932489452,
+        "edit_clean": 0.6497890295358649,
+        "abstain_corrupt": 0.014767932489451477
+      }
+    },
+    "combined_minus_melody": {
+      "forced_location": {
+        "estimate": 0.28389318136153585,
+        "percentile_95_ci_by_song": [
+          0.24352457668913366,
+          0.32461610910186856
+        ]
+      },
+      "location": {
+        "estimate": 0.292706449668475,
+        "percentile_95_ci_by_song": [
+          0.2512547719509745,
+          0.33459915611814345
+        ]
+      },
+      "restore": {
+        "estimate": 0.41054350010046214,
+        "percentile_95_ci_by_song": [
+          0.3704591119148081,
+          0.452559649387181
+        ]
+      },
+      "edit_clean": {
+        "estimate": -0.15822784810126583,
+        "percentile_95_ci_by_song": [
+          -0.20675105485232068,
+          -0.10759493670886076
+        ]
+      },
+      "abstain_corrupt": {
+        "estimate": -0.035864978902953586,
+        "percentile_95_ci_by_song": [
+          -0.056962025316455694,
+          -0.016877637130801686
+        ]
+      }
+    }
+  },
+  "damaged_location_counts": {
+    "2": 95,
+    "3": 68,
+    "4": 72,
+    "5": 88,
+    "6": 66,
+    "7": 85
+  },
+  "by_exact_octet_in_history": {
+    "0": {
+      "n": 134,
+      "rates": {
+        "melody": {
+          "forced_location": 0.4684531886024423,
+          "location": 0.4447050461975835,
+          "restore": 0.23683368869936036,
+          "edit_clean": 0.746268656716418,
+          "abstain_corrupt": 0.07462686567164178
+        },
+        "context": {
+          "forced_location": 0.7412935323383084,
+          "location": 0.7388059701492538,
+          "restore": 0.585820895522388,
+          "edit_clean": 0.7761194029850746,
+          "abstain_corrupt": 0.022388059701492536
+        },
+        "combined": {
+          "forced_location": 0.7014925373134329,
+          "location": 0.6940298507462687,
+          "restore": 0.5895522388059702,
+          "edit_clean": 0.7089552238805971,
+          "abstain_corrupt": 0.03731343283582089
+        }
+      },
+      "combined_minus_melody": {
+        "forced_location": {
+          "estimate": 0.2330393487109905,
+          "percentile_95_ci_by_song": [
+            0.15922271758092654,
+            0.3106092104412999
+          ]
+        },
+        "location": {
+          "estimate": 0.24932480454868516,
+          "percentile_95_ci_by_song": [
+            0.17235252309879176,
+            0.32979033404406527
+          ]
+        },
+        "restore": {
+          "estimate": 0.35271855010660985,
+          "percentile_95_ci_by_song": [
+            0.2743598969438522,
+            0.43287935323383075
+          ]
+        },
+        "edit_clean": {
+          "estimate": -0.03731343283582089,
+          "percentile_95_ci_by_song": [
+            -0.12686567164179105,
+            0.05223880597014925
+          ]
+        },
+        "abstain_corrupt": {
+          "estimate": -0.03731343283582089,
+          "percentile_95_ci_by_song": [
+            -0.08955223880597014,
+            0.007462686567164179
+          ]
+        }
+      }
+    },
+    "1": {
+      "n": 340,
+      "rates": {
+        "melody": {
+          "forced_location": 0.5578291316526611,
+          "location": 0.5490196078431373,
+          "restore": 0.31225490196078426,
+          "edit_clean": 0.8323529411764706,
+          "abstain_corrupt": 0.041176470588235294
+        },
+        "context": {
+          "forced_location": 0.8627450980392156,
+          "location": 0.8602941176470589,
+          "restore": 0.7573529411764706,
+          "edit_clean": 0.5764705882352941,
+          "abstain_corrupt": 0.01764705882352941
+        },
+        "combined": {
+          "forced_location": 0.861764705882353,
+          "location": 0.8588235294117647,
+          "restore": 0.7455882352941177,
+          "edit_clean": 0.6264705882352941,
+          "abstain_corrupt": 0.0058823529411764705
+        }
+      },
+      "combined_minus_melody": {
+        "forced_location": {
+          "estimate": 0.3039355742296919,
+          "percentile_95_ci_by_song": [
+            0.25512324929971986,
+            0.35273126750700284
+          ]
+        },
+        "location": {
+          "estimate": 0.30980392156862746,
+          "percentile_95_ci_by_song": [
+            0.2607843137254902,
+            0.3598039215686275
+          ]
+        },
+        "restore": {
+          "estimate": 0.43333333333333335,
+          "percentile_95_ci_by_song": [
+            0.38333333333333336,
+            0.4816237745098038
+          ]
+        },
+        "edit_clean": {
+          "estimate": -0.20588235294117646,
+          "percentile_95_ci_by_song": [
+            -0.26176470588235295,
+            -0.14705882352941177
+          ]
+        },
+        "abstain_corrupt": {
+          "estimate": -0.03529411764705882,
+          "percentile_95_ci_by_song": [
+            -0.05588235294117647,
+            -0.01764705882352941
+          ]
+        }
+      }
+    }
+  }
+}

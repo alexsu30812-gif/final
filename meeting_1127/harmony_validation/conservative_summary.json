@@ -1,0 +1,62 @@
+{
+  "target_intact_preservation": 0.9,
+  "n_calibration": 237,
+  "n_evaluation": 237,
+  "rank_one_based": 215,
+  "methods": {
+    "melody": {
+      "original": {
+        "threshold": 1e-09,
+        "changed_intact_count": 188,
+        "kept_intact_rate": 0.2067510548523207,
+        "proposed_on_altered_count": 226,
+        "located_rate_all_altered": 0.4962829013461925,
+        "restored_rate_all_altered": 0.29279686558167567
+      },
+      "calibrated": {
+        "threshold": 1.000000001,
+        "changed_intact_count": 0,
+        "kept_intact_rate": 1.0,
+        "proposed_on_altered_count": 0,
+        "located_rate_all_altered": 0.0,
+        "restored_rate_all_altered": 0.0
+      }
+    },
+    "context": {
+      "original": {
+        "threshold": 1e-09,
+        "changed_intact_count": 138,
+        "kept_intact_rate": 0.4177215189873418,
+        "proposed_on_altered_count": 232,
+        "located_rate_all_altered": 0.8291139240506329,
+        "restored_rate_all_altered": 0.7025316455696202
+      },
+      "calibrated": {
+        "threshold": 1.3862943621198909,
+        "changed_intact_count": 27,
+        "kept_intact_rate": 0.8860759493670887,
+        "proposed_on_altered_count": 190,
+        "located_rate_all_altered": 0.7278481012658228,
+        "restored_rate_all_altered": 0.6286919831223629
+      }
+    },
+    "combined": {
+      "original": {
+        "threshold": 1e-09,
+        "changed_intact_count": 151,
+        "kept_intact_rate": 0.3628691983122363,
+        "proposed_on_altered_count": 233,
+        "located_rate_all_altered": 0.7932489451476793,
+        "restored_rate_all_altered": 0.6962025316455697
+      },
+      "calibrated": {
+        "threshold": 0.6717631060957072,
+        "changed_intact_count": 26,
+        "kept_intact_rate": 0.890295358649789,
+        "proposed_on_altered_count": 145,
+        "located_rate_all_altered": 0.5189873417721519,
+        "restored_rate_all_altered": 0.4578059071729958
+      }
+    }
+  }
+}
